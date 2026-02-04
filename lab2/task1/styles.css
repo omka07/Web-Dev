@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     padding: 20px;
 }
 
-/* Main Container */
+
 .container {
     display: flex;
     gap: 100px;
@@ -23,7 +23,7 @@ body {
     width: 100%;
 }
 
-/* Left Side - Logo */
+
 .left-side {
     flex: 1;
 }
@@ -39,7 +39,7 @@ body {
     color: #1c1e21;
 }
 
-/* Right Side - Login Form */
+
 .right-side {
     flex: 1;
 }
@@ -106,21 +106,4 @@ hr {
 
 .create-btn:hover {
     background-color: #36a420;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-    .container {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .logo {
-        font-size: 50px;
-    }
-    
-    .tagline {
-        font-size: 20px;
-    }
 }

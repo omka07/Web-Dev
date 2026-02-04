@@ -226,32 +226,3 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
-
-/* Mobile Responsive */
-@media (max-width: 900px) {
-    .pricing-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .addons-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .hero h1 {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 600px) {
-    .addons-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero h1 {
-        font-size: 28px;
-    }
-    
-    .hero p {
-        font-size: 16px;
-    }
-}

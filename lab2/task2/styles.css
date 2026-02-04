@@ -123,11 +123,3 @@ body {
     text-align: center;
     margin-top: 20px;
 }
-
-/* Mobile */
-@media (max-width: 450px) {
-    .login-box {
-        border: none;
-        padding: 20px;
-    }
-}
