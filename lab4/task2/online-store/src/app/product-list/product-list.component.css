@@ -1,0 +1,129 @@
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #e0e0e0; /* Светлая рамка */
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* В Kaspi всё выровнено по левому краю, а не по центру */
+  text-align: left; 
+  transition: box-shadow 0.2s;
+  height: 100%;
+  font-family: 'Roboto', sans-serif; /* Похожий шрифт */
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.image-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Название товара */
+.product-title {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  height: 40px; /* Ограничим высоту заголовка */
+  overflow: hidden;
+}
+
+.product-title a {
+  color: #0089d0; /* Синий цвет ссылок Kaspi */
+  text-decoration: none;
+}
+
+.product-title a:hover {
+  color: #f14635; /* При наведении краснеет */
+}
+
+/* Блок рейтинга */
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #e0e0e0; /* Серые пустые звезды */
+  font-size: 18px;
+}
+
+.stars .filled {
+  color: #f14635; /* Красные звезды (Kaspi Red) */
+}
+
+.reviews {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Цена */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Кнопки Share */
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto; /* Прижимает кнопки к низу */
+}
+
+.btn-whatsapp, .btn-telegram {
+  flex: 1;
+  border: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-whatsapp {
+  background-color: #25D366; /* Цвет WhatsApp */
+}
+
+.btn-telegram {
+  background-color: #0088cc; /* Цвет Telegram */
+}
+
+.btn-whatsapp:hover { background-color: #128c7e; }
+.btn-telegram:hover { background-color: #0077b5; }
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .product-container { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .product-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .product-container { grid-template-columns: 1fr; }
+}

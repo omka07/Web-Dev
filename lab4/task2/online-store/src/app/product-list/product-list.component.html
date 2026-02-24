@@ -1,0 +1,35 @@
+<h2>Товары Kaspi</h2>
+
+<div class="product-container">
+  <div *ngFor="let product of products" class="product-card">
+    
+    <div class="image-container">
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+    </div>
+
+    <h3 class="product-title">
+        <a [href]="product.link" target="_blank">{{ product.name }}</a>
+    </h3>
+    
+    <div class="rating-container">
+        <span class="stars">
+            <span *ngFor="let i of [1,2,3,4,5]" [class.filled]="i <= product.rating">★</span>
+        </span>
+        <span class="reviews">({{ product.reviews }} отзывов)</span>
+    </div>
+
+    <div class="price-container">
+       <span class="price">{{ product.price }} ₸</span>
+    </div>
+
+    <div class="share-buttons">
+        <button (click)="share(product.link)" class="btn-whatsapp">
+            WhatsApp
+        </button>
+        <button (click)="share(product.link)" class="btn-telegram">
+            Telegram
+        </button>
+    </div>
+
+  </div>
+</div>
