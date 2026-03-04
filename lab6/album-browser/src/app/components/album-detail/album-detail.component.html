@@ -1,0 +1,25 @@
+<div *ngIf="album" style="padding: 20px;">
+  <button (click)="goBack()">← Back to Albums</button>
+  <hr>
+
+  <div class="detail-card">
+    <h1>Album Details</h1>
+    <p><strong>ID:</strong> {{ album.id }}</p>
+    <p><strong>User ID:</strong> {{ album.userId }}</p>
+
+    <div style="margin: 15px 0;">
+      <label>Title:</label><br>
+      <input [(ngModel)]="newTitle" style="width: 100%; padding: 10px;">
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+      <button (click)='save()' style="background: green; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        Save Title
+      </button>
+
+      <button [routerLink]="['/albums', album.id, 'photos']" style="background: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+        View Photos
+      </button>
+    </div>
+  </div>
+</div>

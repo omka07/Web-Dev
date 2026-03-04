@@ -1,0 +1,13 @@
+<div style="padding: 20px;">
+  <button (click)="back()">← Back</button>
+  <h2>Photos for Album #{{ albumId }}</h2>
+
+  <p>Загружено фотографий: {{ photos.length }}</p>
+
+  <div class="grid">
+    <div *ngFor="let p of photos" style="border: 1px solid #ccc; padding: 5px;">
+      <img [src]="p.thumbnailUrl" style="width: 100%; display: block;">
+      <span style="font-size: 10px;">{{ p.title }}</span>
+    </div>
+  </div>
+</div>

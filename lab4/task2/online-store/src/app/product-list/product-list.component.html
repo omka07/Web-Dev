@@ -18,6 +18,12 @@
         <span class="reviews">({{ product.reviews }} отзывов)</span>
     </div>
 
+    <div class="rating-container">
+        <span class="stars">
+            <span *ngFor="let i of [1,2,3,4,5]" (click)="clickStar(product, i)" [class.filled]="i <= product.myrating">★</span>
+        </span>
+    </div>
+
     <div class="price-container">
        <span class="price">{{ product.price }} ₸</span>
     </div>
