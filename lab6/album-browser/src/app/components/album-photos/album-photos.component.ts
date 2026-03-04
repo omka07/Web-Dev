@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // Добавили ChangeDetectorRef
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { AlbumService } from '../../services/album.service';
@@ -18,11 +18,11 @@ export class AlbumPhotosComponent implements OnInit {
     private route: ActivatedRoute, 
     private albumService: AlbumService,
     private location: Location,
-    private cdr: ChangeDetectorRef // Внедряем его сюда
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnInit() {
-    // Используем подписку, это надежнее чем snapshot для таких случаев
+    
     this.route.paramMap.subscribe(params => {
       this.albumId = params.get('id');
       
@@ -32,7 +32,7 @@ export class AlbumPhotosComponent implements OnInit {
             console.log('ФОТО ПРИШЛИ:', data.length);
             this.photos = data;
             
-            // ПРИНУДИТЕЛЬНОЕ ОБНОВЛЕНИЕ ЭКРАНА
+          
             this.cdr.detectChanges(); 
           },
           error: (err) => console.error('Ошибка:', err)
