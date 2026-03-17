@@ -102,7 +102,7 @@ export class ProductListComponent {
   ];
 
   clickStar(product: Product, rating: number){
-    product.myrating=rating;
+    product.myrating=rating;  
   }
 
   share(link: string) {

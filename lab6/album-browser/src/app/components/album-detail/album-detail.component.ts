@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. Добавили импорт
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -19,11 +19,11 @@ export class AlbumDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private albumService: AlbumService,
-    private cdr: ChangeDetectorRef // 2. Внедряем сервис проверки изменений
+    private cdr: ChangeDetectorRef 
   ) {}
 
   ngOnInit() {
-  // 1. Берем ID напрямую из URL без лишних подписок для проверки
+
     const id = this.route.snapshot.params['id'];
     console.log('Loading attempt for ID', id);
 
@@ -33,7 +33,7 @@ export class AlbumDetailComponent implements OnInit {
           console.log('Data came to component:', data);
           this.album = data;
           this.newTitle = data.title;
-          // Принудительно просим Angular обновить экран
+
           this.cdr.detectChanges();
         },
         error: (err) => console.error('Service Error:', err)
@@ -41,10 +41,28 @@ export class AlbumDetailComponent implements OnInit {
     }
   }
 
+
   save() {
     if (this.album) {
+  
       this.album.title = this.newTitle;
-      this.albumService.updateAlbum(this.album).subscribe(() => alert('Saved!'));
+
+ 
+      const saved = localStorage.getItem('my_albums');
+      if (saved) {
+        let allAlbums: Album[] = JSON.parse(saved);
+        
+        const index = allAlbums.findIndex(a => a.id === this.album?.id);
+        if (index !== -1) {
+          allAlbums[index].title = this.newTitle;
+          
+          localStorage.setItem('my_albums', JSON.stringify(allAlbums));
+        }
+      }
+
+      this.albumService.updateAlbum(this.album).subscribe(() => {
+        alert('Saved locally and sent to server!');
+      });
     }
   }
 

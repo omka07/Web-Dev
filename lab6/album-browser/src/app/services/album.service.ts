@@ -6,28 +6,28 @@ import { Photo } from '../models/photo.model';
 
 @Injectable({ providedIn: 'root' })
 export class AlbumService {
-  private baseUrl = 'https://jsonplaceholder.typicode.com'; // [cite: 25]
+  private baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  constructor(private http: HttpClient) {} // [cite: 50]
+  constructor(private http: HttpClient) {}
 
   getAlbums(): Observable<Album[]> {
-    return this.http.get<Album[]>(`${this.baseUrl}/albums`); // [cite: 52]
+    return this.http.get<Album[]>(`${this.baseUrl}/albums`);
   }
 
   getAlbum(id: number): Observable<Album> {
-    return this.http.get<Album>(`${this.baseUrl}/albums/${id}`); // [cite: 52]
+    return this.http.get<Album>(`${this.baseUrl}/albums/${id}`); 
   }
 
   getAlbumPhotos(id: number): Observable<Photo[]> {
-    return this.http.get<Photo[]>(`${this.baseUrl}/albums/${id}/photos`); // [cite: 52]
+    return this.http.get<Photo[]>(`${this.baseUrl}/albums/${id}/photos`);
   }
 
   updateAlbum(album: Album): Observable<Album> {
-    // Используем http.put для обновления ресурса [cite: 31, 53]
+
     return this.http.put<Album>(`${this.baseUrl}/albums/${album.id}`, album); 
   }
 
   deleteAlbum(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/albums/${id}`); // [cite: 56]
+    return this.http.delete<void>(`${this.baseUrl}/albums/${id}`);
   }
 }
