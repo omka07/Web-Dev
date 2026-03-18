@@ -5,6 +5,6 @@ def swap_case(s):
             res += char.lower()
         elif char.islower():
             res += char.upper()
-        else:
+        else:   
             res += char
     return res
