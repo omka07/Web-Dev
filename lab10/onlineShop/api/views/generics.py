@@ -3,10 +3,19 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from api.models import Product, Category
 from api.serializers import ProductSerializer, CategorySerializer
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
+from api.serializers import UserSerializer
+from django.contrib.auth.models import User
+
+class RegisterUserAPIView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (AllowAny,)
 
 class ProductListAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = (IsAuthenticated,)
 
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
